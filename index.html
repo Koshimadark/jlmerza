@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Learning Hub 💻🚀</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            transition: 0.5s ease-in-out;
+        }
+
+        /* 3D Header */
+        header {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            position: relative;
+            transform: perspective(800px) translateZ(15px);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 900;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.15);
+        }
+
+        /* Dark Mode Button */
+        #dark-mode-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        #dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Section Headers */
+        h2 {
+            color: #6a5acd;
+            border-bottom: 4px solid #ffb3e6;
+            padding-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        /* 3D Topic Cards */
+        .topic {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.4s, box-shadow 0.4s;
+            transform-style: preserve-3d;
+        }
+        .topic:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+        .topic h3 {
+            font-size: 1.5rem;
+        }
+
+        /* Code Block */
+        code {
+            display: block;
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            padding: 1rem;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin-top: 1rem;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        /* Quiz Section */
+        .question {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: #fafafa;
+            border-radius: 15px;
+            border-left: 6px solid #6a5acd;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        /* 3D Button */
+        button {
+            background: linear-gradient(135deg, #6a5acd, #8a2be2);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+        }
+
+        #results {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #e8ffe8;
+            border-radius: 10px;
+            border: 2px solid #4caf50;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: white;
+            margin-top: 2rem;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background: #0d0d0d;
+            color: #eee;
+        }
+        .dark-mode main {
+            background: rgba(30,30,30,0.9);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>💻 CS Learning Hub 🚀</h1>
+    <nav>
+        <ul>
+            <li><a href="#intro">🏁 Intro</a></li>
+            <li><a href="#topics">📚 Topics</a></li>
+            <li><a href="#resources">🔗 Resources</a></li>
+            <li><a href="#quiz">🧠 Quiz</a></li>
+        </ul>
+    </nav>
+    <button id="dark-mode-toggle">🌙 Dark Mode</button>
+</header>
+
+<main>
+    <section id="intro">
+        <h2>✨ Welcome to CS Learning</h2>
+        <p>Learn algorithms, data structures, programming languages, and more — all through an interactive, modern, fun interface! 😄</p>
+    </section>
+
+    <section id="topics">
+        <h2>📘 Key Topics</h2>
+
+        <div class="topic">
+            <h3>⚙️ Algorithms</h3>
+            <p>Sorting, searching, dynamic programming and more!</p>
+            <code>def binary_search(arr, target): ...</code>
+        </div>
+
+        <div class="topic">
+            <h3>🗂️ Data Structures</h3>
+            <p>Arrays, linked lists, trees, graphs — the building blocks of CS.</p>
+            <code>class Stack { ... }</code>
+        </div>
+
+        <div class="topic">
+            <h3>💬 Programming Languages</h3>
+            <p>Python, Java, C++, and functional languages.</p>
+            <code>print("Hello, World!")</code>
+        </div>
+
+        <div class="topic">
+            <h3>🌐 Computer Networks</h3>
+            <p>HTTP, TCP/IP, encryption, cybersecurity basics.</p>
+        </div>
+    </section>
+
+    <section id="resources">
+        <h2>📚 Learning Resources</h2>
+        <ul>
+            <li><a href="#">Coursera</a></li>
+            <li><a href="#">MIT OpenCourseWare</a></li>
+            <li><a href="#">freeCodeCamp</a></li>
+            <li><a href="#">LeetCode</a></li>
+        </ul>
+    </section>
+
+    <section id="quiz">
+        <h2>🧠 Interactive Quiz</h2>
+
+        <div class="question" data-correct="1">
+            <p>1. What's the time complexity of Bubble Sort?</p>
+            <label><input type="radio" name="q1" value="0">O(n)</label><br>
+            <label><input type="radio" name="q1" value="1">O(n²)</label><br>
+            <label><input type="radio" name="q1" value="0">O(log n)</label>
+        </div>
+
+        <div class="question" data-correct="2">
+            <p>2. Which uses LIFO?</p>
+            <label><input type="radio" name="q2" value="0">Queue</label><br>
+            <label><input type="radio" name="q2" value="1">Array</label><br>
+            <label><input type="radio" name="q2" value="2">Stack</label>
+        </div>
+
+        <button id="submit-quiz">Submit Quiz 🚀</button>
+
+        <div id="results" style="display:none;">
+            <p>Your score: <span id="score">0</span>/2 🎯</p>
+            <p id="feedback"></p>
+        </div>
+    </section>
+</main>
+
+<script>
+document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// Dark Mode
+document.getElementById("dark-mode-toggle").onclick = () => {
+    document.body.classList.toggle("dark-mode");
+};
+
+// Quiz
+document.getElementById("submit-quiz").onclick = () => {
+    let score = 0;
+    let feedback = "";
+
+    document.querySelectorAll(".question").forEach((q, i) => {
+        const selected = q.querySelector("input:checked");
+        const correct = q.dataset.correct;
+
+        if (selected && selected.value === correct) {
+            score++;
+            feedback += `✔️ Q${i+1} Correct!\n`;
+        } else {
+            feedback += `❌ Q${i+1} Incorrect.\n`;
+        }
+    });
+
+    document.getElementById("score").textContent = score;
+    document.getElementById("feedback").textContent = feedback;
+    document.getElementById("results").style.display = "block";
+};
+</script>
+
+</body>
+</html>
